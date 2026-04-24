@@ -137,9 +137,10 @@ a:hover {
   display: flex;
   align-items: center;
 }
-.site-title > span {
+.site-title h1 {
+  margin: 0;
   font-size: 1rem;
-  margin-left: 0.3em;
+  font-weight: 700;
 }
 
 .logo {
@@ -167,7 +168,160 @@ a:hover {
   overflow: hidden;
 }
 
-svg {
+.icon {
+  width: 1.25rem;
+  height: 1.25rem;
+  fill: currentColor;
+}
+
+/* ---------- Disclaimer ---------- */
+
+.disclaimer {
+  margin: 0;
+  padding: 0.5rem 1rem;
+  font-size: 0.8rem;
+  background-color: var(--bs-pampas);
+  color: var(--bs-gray-900);
+}
+
+/* ---------- Global Header ---------- */
+
+.global-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   background-color: var(--bs-black);
-  fill: white;
+  color: var(--bs-white);
+  padding: 0.75rem 1rem;
+}
+
+.site-title {
+  color: var(--bs-white);
+  text-decoration: none;
+}
+
+.site-title:link,
+.site-title:visited {
+  color: var(--bs-white);
+}
+
+.site-title h1 {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.global-header__right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.search-icon:link,
+.search-icon:visited {
+  color: var(--bs-white);
+}
+
+#global-nav-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  border: none;
+  background: none;
+  color: var(--bs-white);
+  font: inherit;
+  cursor: pointer;
+}
+
+/* ---------- Hero Banner ---------- */
+
+.hero-banner {
+  position: relative;
+  min-height: 280px;
+  background-color: var(--bs-grey-5);
+  color: var(--bs-white);
+}
+
+.hero-banner img {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+}
+
+.hero-banner__content {
+  position: absolute;
+  left: 1rem;
+  bottom: 1rem;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.8);
+}
+
+.hero-banner__title:link,
+.hero-banner__title:visited {
+  display: block;
+  color: var(--bs-white);
+  font-size: 2.25rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.hero-banner__subtitle {
+  display: flex;
+  gap: 0.75rem;
+  margin: 0;
+  font-size: 1rem;
+}
+
+/* ---------- Park Navigation ---------- */
+
+.park-nav {
+  background-color: var(--bs-grey-4);
+  color: var(--bs-white);
+}
+
+.park-nav ul {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.park-nav a:link,
+.park-nav a:visited {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+  min-height: 70px;
+  padding: 0.5rem;
+  color: var(--bs-white);
+  text-decoration: none;
+  border-left: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.park-nav li:first-child a {
+  border-left: none;
+}
+
+.park-nav a:hover {
+  background-color: var(--bs-grey-2);
+}
+
+/* ---------- Mobile Adjustments ---------- */
+
+@media screen and (max-width: 600px) {
+  .hero-banner img {
+    height: 240px;
+  }
+
+  .hero-banner__title:link,
+  .hero-banner__title:visited {
+    font-size: 2rem;
+  }
+
+  .park-nav a:link,
+  .park-nav a:visited {
+    font-size: 0.8rem;
+  }
 }
