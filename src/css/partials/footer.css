@@ -1,0 +1,17 @@
+#park-footer {
+  margin-top: 2rem;
+  padding: 2rem 1rem;
+  background-color: var(--bs-grey-4);
+  color: var(--bs-white);
+}
+
+#park-footer .contact {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+#park-footer h3,
+#park-footer h4,
+#park-footer p {
+  margin-top: 0;
+}

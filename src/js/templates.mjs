@@ -21,17 +21,21 @@ export function mediaCardTemplate(info) {
 }
 
 function getMailingAddress(addresses) {
-  return addresses.find((address) => address.type === "Mailing");
+  return addresses.find((address) => address.type === "Mailing") || addresses[0];
 }
 
-function getVoicePhone(numbers) {
-  const voice = numbers.find((number) => number.type === "Voice");
-  return voice.phoneNumber;
+function getVoicePhone(contacts) {
+  const phoneNumbers = Array.isArray(contacts)
+    ? contacts[0]?.phoneNumbers
+    : contacts?.phoneNumbers;
+
+  const voice = phoneNumbers?.find((number) => number.type === "Voice");
+  return voice?.phoneNumber || "No phone number listed";
 }
 
 export function footerTemplate(info) {
   const mailing = getMailingAddress(info.addresses);
-  const voice = getVoicePhone(info.contacts.phoneNumbers);
+  const voice = getVoicePhone(info.contacts);
 
   return `
     <section class="contact">
