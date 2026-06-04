@@ -13,7 +13,8 @@ export default defineConfig({
     emptyOutDir: true,
     rollupOptions: {
       input: {
-        main: resolve(__dirname, "src/index.html")
+        main: resolve(__dirname, "src/index.html"),
+        conditions: resolve(__dirname, "src/conditions.html")
       }
     }
   }

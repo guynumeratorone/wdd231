@@ -8,11 +8,16 @@ function setHeaderInfo(data) {
   document.querySelector("head > title").textContent = data.fullName;
 
   const heroImage = document.querySelector(".hero-banner > img");
-  heroImage.src = data.images[0].url;
-  heroImage.alt = data.images[0].altText || data.fullName;
+  const heroContent = document.querySelector(".hero-banner__content");
 
-  document.querySelector(".hero-banner__content").innerHTML =
-    parkInfoTemplate(data);
+  if (heroImage) {
+    heroImage.src = data.images[0].url;
+    heroImage.alt = data.images[0].altText || data.fullName;
+  }
+
+  if (heroContent) {
+    heroContent.innerHTML = parkInfoTemplate(data);
+  }
 }
 
 function setFooter(data) {

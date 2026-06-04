@@ -1,0 +1,103 @@
+:root {
+  --alert-closure: #cb2027;
+  --alert-caution: #ed7e31;
+  --alert-information: #2451a9;
+  --alert-danger: #720f04;
+}
+
+.alert-information {
+  color: var(--alert-information);
+}
+
+.alert-danger {
+  color: var(--alert-danger);
+}
+
+.alert-closure {
+  color: var(--alert-closure);
+}
+
+.alert-caution {
+  color: var(--alert-caution);
+}
+
+.alerts > ul,
+.visitor ul,
+.activities ul {
+  list-style: none;
+  padding: 0;
+}
+
+.alert {
+  margin: 0.5rem 0;
+  padding: 0.5rem 0 0.8rem 0;
+  display: flex;
+  gap: 1em;
+  border-bottom: 1px solid var(--bs-grey-3, #d8d8d8);
+}
+
+.alert h3 {
+  margin: 0;
+  font-size: 1.2em;
+}
+
+.alert p {
+  margin: 0;
+}
+
+.alert svg {
+  height: 30px;
+  width: 30px;
+  margin: 0.25em;
+  flex: 0 0 auto;
+}
+
+.visitor details,
+.activities details {
+  border: 1px solid var(--bs-grey-3, #d8d8d8);
+  margin: 1rem 0;
+}
+
+.visitor summary,
+.activities summary {
+  cursor: pointer;
+  font-weight: 700;
+  padding: 1rem;
+}
+
+.visitor details[open] summary,
+.activities details[open] summary {
+  border-bottom: 1px solid var(--bs-grey-3, #d8d8d8);
+}
+
+.visitor-card {
+  padding: 1rem;
+  border-bottom: 1px solid var(--bs-grey-3, #d8d8d8);
+}
+
+.visitor-card:last-child {
+  border-bottom: none;
+}
+
+.visitor-card h3 {
+  margin-top: 0;
+}
+
+.hours-status {
+  font-weight: 700;
+}
+
+.activities ul {
+  padding: 1rem;
+  columns: 1;
+}
+
+.activities li {
+  margin-bottom: 0.5rem;
+}
+
+@media screen and (min-width: 700px) {
+  .activities ul {
+    columns: 2;
+  }
+}

@@ -50,3 +50,67 @@ export function footerTemplate(info) {
     </section>
   `;
 }
+
+export function alertTemplate(alert) {
+  let alertType = alert.category.toLowerCase();
+
+  if (alert.category === "Park Closure") {
+    alertType = "closure";
+  }
+
+  return `<li class="alert">
+    <svg class="icon" focusable="false" aria-hidden="true">
+      <use xlink:href="/images/sprite.symbol.svg#alert-${alertType}"></use>
+    </svg>
+    <div>
+      <h3 class="alert-${alertType}">${alert.title}</h3>
+      <p>${alert.description}</p>
+    </div>
+  </li>`;
+}
+
+function getTodayHours(center) {
+  const days = [
+    "sunday",
+    "monday",
+    "tuesday",
+    "wednesday",
+    "thursday",
+    "friday",
+    "saturday"
+  ];
+  const today = days[new Date().getDay()];
+  const standardHours = center.operatingHours?.[0]?.standardHours;
+
+  return standardHours?.[today] || "Hours not listed";
+}
+
+function getOpenStatus(hours) {
+  if (hours.toLowerCase().includes("closed")) {
+    return "Closed today";
+  }
+
+  if (hours === "Hours not listed") {
+    return "Hours not listed";
+  }
+
+  return "Open today";
+}
+
+export function visitorCenterTemplate(center) {
+  const hours = getTodayHours(center);
+  const openStatus = getOpenStatus(hours);
+  const description = center.description || "No description available.";
+  const directions = center.directionsInfo || "No directions listed.";
+
+  return `<li class="visitor-card">
+    <h3>${center.name}</h3>
+    <p class="hours-status">${openStatus}: ${hours}</p>
+    <p>${description}</p>
+    <p>${directions}</p>
+  </li>`;
+}
+
+export function activityTemplate(activity) {
+  return `<li>${activity.name}</li>`;
+}
