@@ -5,7 +5,6 @@
 }
 
 .skip-links a {
-  font-size: 11px;
   font-size: 0.6875rem;
   position: absolute;
   right: 20px;
@@ -56,6 +55,7 @@
 
 .global-header {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
   background-color: var(--bs-black);
@@ -85,13 +85,89 @@
   cursor: pointer;
 }
 
+/* ---------- Global navigation ---------- */
+
 .global-nav {
+  display: block;
+  flex-basis: 100%;
+  width: 100%;
+  max-height: 0;
+  overflow: hidden;
+  border-top: 1px solid #333;
+  transition: max-height 0.5s ease;
+}
+
+.global-nav.show {
+  max-height: 1000px;
+}
+
+.global-nav__section-heading {
+  margin: 0;
+  padding: 1rem;
+  color: var(--bs-white);
+  font-size: 1.1rem;
+}
+
+.global-nav__list {
+  display: block;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.global-nav__split-button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.global-nav__split-button a {
+  display: block;
+  flex: 1;
+  padding: 1rem;
+  color: var(--bs-white);
+  text-decoration: none;
+}
+
+.global-nav__split-button button {
+  padding: 1rem;
+  border: 0;
+  background-color: transparent;
+  color: var(--bs-white);
+  cursor: pointer;
+}
+
+.global-nav__split-button svg {
+  --icon-color: white;
+}
+
+.global-nav__toggle--closed,
+.global-nav__toggle--open {
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.global-nav__toggle--closed {
+  display: flex;
+}
+
+.global-nav__toggle--open {
   display: none;
+}
+
+.global-nav__toggle[aria-expanded="true"] .global-nav__toggle--closed {
+  display: none;
+}
+
+.global-nav__toggle[aria-expanded="true"] .global-nav__toggle--open {
+  display: flex;
 }
 
 #park-header {
   display: none;
 }
+
+/* ---------- Hero banner ---------- */
 
 .hero-banner {
   position: relative;
@@ -129,6 +205,8 @@
   font-size: 1rem;
 }
 
+/* ---------- Park navigation ---------- */
+
 .park-nav {
   background-color: var(--bs-grey-4);
   color: var(--bs-white);
@@ -162,6 +240,19 @@
 
 .park-nav a:hover {
   background-color: var(--bs-grey-2);
+}
+
+/* ---------- Wide-screen navigation ---------- */
+
+@media screen and (min-width: 700px) {
+  .global-nav {
+    max-height: 1000px;
+    overflow: visible;
+  }
+
+  #global-nav-toggle {
+    display: none;
+  }
 }
 
 @media screen and (max-width: 600px) {

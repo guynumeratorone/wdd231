@@ -8,7 +8,7 @@ import {
   alertTemplate,
   visitorCenterTemplate
 } from "./templates.mjs";
-import setHeaderFooter from "./setHeaderFooter.mjs";
+import setHeaderFooter, { enableNavigation } from "./setHeaderFooter.mjs";
 
 function setAlerts(alerts) {
   const alertsContainer = document.querySelector(".alerts > ul");
@@ -50,6 +50,8 @@ function setActivities(activities) {
 }
 
 async function init() {
+  enableNavigation();
+
   try {
     const parkData = await getParkData();
     const alerts = await getParkAlerts(parkData.parkCode);

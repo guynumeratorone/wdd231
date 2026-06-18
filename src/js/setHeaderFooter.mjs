@@ -1,5 +1,22 @@
 import { parkInfoTemplate, footerTemplate } from "./templates.mjs";
 
+
+export function enableNavigation() {
+  const menuButton = document.querySelector("#global-nav-toggle");
+  const globalNav = document.querySelector(".global-nav");
+
+  if (!menuButton || !globalNav) {
+    return;
+  }
+
+  menuButton.addEventListener("click", () => {
+    const isOpen = globalNav.classList.toggle("show");
+
+    menuButton.setAttribute("aria-expanded", String(isOpen));
+    menuButton.setAttribute("aria-label", isOpen ? "Close Menu" : "Open Menu");
+  });
+}
+
 function setHeaderInfo(data) {
   const disclaimer = document.querySelector(".disclaimer > a");
   disclaimer.href = data.url;

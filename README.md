@@ -11,11 +11,11 @@ Use this as a starting point to complete the WDD 231 personal activity. We will 
 ## Setup
 
 - `npm install`
-- `npm run start` starts up a local server and updates on any JS or CSS/SCSS changes.
+- `npm run build` to build final files when you are ready to turn in.
 
 ## Other commands
 
-- `npm run build` to build final files when you are ready to turn in.
+- `npm run start` starts up a local server and updates on any JS or CSS/SCSS changes.
 
 ## Live Site
 
